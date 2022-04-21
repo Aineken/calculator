@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding-top: 100px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: 
+  "dis dis dis dis" 
+  "AC C div multi" 
+  "seven eight nine minus"
+  "four five six plus"
+  "one two three equal"
+  "zero zero dot equal";
+}
+
+
+.padButton{
+
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: gray;
+  border: 1px solid black;
   color: white;
+  cursor: pointer;
+  font-size: 30px;
+  margin: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.padButton:hover{
+  border: 1px solid white;
+  color:#CCC;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dis{
+  background-color: black;
+  grid-area: dis;
+  text-align: end;
 }
+.dis input{
+  width: 90%;
+  height: 50px;
+  background-color: black;
+  border: 0;
+  text-align: right;
+  padding: 5px 20px;
+}
+input::placeholder{
+  color: white;
+  font-size: 30px;
+  padding: 5px 20px;
+
+}
+input[type="text" i]{
+  padding: 0;
+}
+
+.result{
+  color: yellow;
+  padding: 5px 20px;
+  font-size: 30px;
+}
+
+.equal{
+  grid-area: equal;
+}
+.zero{
+  grid-area: zero;
+}
+
+.dark-grey{
+  background-color: #333;
+}
+
+.tomato{
+  background-color: tomato;
+}
+
+.blue{
+  background-color: #5699CC;
+}
+
