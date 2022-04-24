@@ -43,24 +43,24 @@
   background-color: black;
   grid-area: dis;
   text-align: end;
+  position: relative;
 }
 .dis input{
+ 
   width: 90%;
-  height: 50px;
   background-color: black;
   border: 0;
   text-align: right;
   padding: 5px 20px;
-}
-input::placeholder{
   color: white;
   font-size: 30px;
   padding: 5px 20px;
+}
+input::placeholder{
+  font-size: 30px;
 
 }
-input[type="text" i]{
-  padding: 0;
-}
+
 
 .result{
   color: yellow;

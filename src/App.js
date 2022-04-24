@@ -1,3 +1,6 @@
+/*eslint no-eval : 0*/
+
+
 import { useState } from 'react';
 import './App.css';
 
@@ -5,13 +8,23 @@ function App() {
   const [expression, setExpression] = useState("")
   const [answer,setAnswer] = useState(0)
 
-  const display=(e)=>{
+  const display=(symbol)=>{
 
-    setExpression((prev)=>prev+e);
+    setExpression((prev)=>prev+symbol);
+    if(expression[expression.length-1]=="="){
+      if(/[0-9.]/.test(symbol)){
+        setExpression(symbol)
+      }else{
+        setExpression(answer+symbol)
+      }
+
+    }
   }
 
   const result =()=>{
+
     setAnswer(eval(expression));
+    setExpression((prev)=> prev+"=")
   }
 
   const allClear=()=>{
@@ -19,9 +32,12 @@ function App() {
     setAnswer(0)
   };
   const clear=()=>{
-    setExpression(prev=>{
-      prev.slip("").slice(0, prev.length-1).join("")
-    });
+    setExpression(prev=>
+      prev
+      .split("")
+      .slice(0, (prev.length - 1) )
+      .join("")
+    );
 
     setAnswer(0)
   };
@@ -34,7 +50,7 @@ function App() {
 
        <div className="grid">
          <div className="dis">
-           <input type="text" value={expression} disabled placeholder='0'   />
+           <input type="text" value={expression} disabled  placeholder='0'   />
            <div className="result">{answer}</div>
          </div>
 
